@@ -19,6 +19,8 @@ import java.time.Duration;
  * @ConditionalOnMissingBean(name = "redisTemplate")
  * 会检测Spring容器中是否有一个id为redisTemplate的Bean,如果有,就用现成的,不在使用默认配置去初始化
  * 如果没有,用默认配置初始化
+ *
+ * 123
  */
 @Configuration
 public class RedisConfig {

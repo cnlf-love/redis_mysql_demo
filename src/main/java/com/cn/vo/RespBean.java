@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
  */
 
 /**
- * 用于数据的返回
+ * 用于数据的返回结果
  */
 @Data
 @NoArgsConstructor

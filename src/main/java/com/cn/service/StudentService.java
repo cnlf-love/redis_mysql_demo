@@ -10,6 +10,7 @@ import java.util.List;
  * @Author 拾荒者
  * @Date 2022/4/17 0:31
  * @Version 1.0
+ * test
  */
 public interface StudentService {
     // 查询所有的 student

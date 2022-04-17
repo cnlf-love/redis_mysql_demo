@@ -24,4 +24,5 @@ mybatis:
   type-aliases-package: com.cn.pojo
   configuration:
     map-underscore-to-camel-case: false
+#test
 

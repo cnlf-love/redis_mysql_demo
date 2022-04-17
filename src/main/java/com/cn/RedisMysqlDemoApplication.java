@@ -5,6 +5,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
+/**
+ * test
+ */
 @SpringBootApplication
 @MapperScan("com.cn.mapper")
 public class RedisMysqlDemoApplication {

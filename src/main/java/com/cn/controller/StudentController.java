@@ -20,6 +20,7 @@ import java.util.List;
  * @Author 拾荒者
  * @Date 2022/4/17 0:46
  * @@Version 1.0
+ * 123
  */
 @RestController
 @RequestMapping("/student")
@@ -64,17 +65,22 @@ public class StudentController {
         return RespBean.error("添加失败");
     }
 
-    @ApiOperation(value ="取出队列中的所有student",httpMethod = "GET")
-    @GetMapping("/listAll")
-    public List<Student> listAll(){
-        List<Student> students = new Gson().fromJson(redisUtils.listAll("student:key")+"",List.class);
-        return students;
-    }
+//    @ApiOperation(value ="取出队列中的所有student",httpMethod = "GET")
+//    @GetMapping("/listAll")
+//    public List<Student> listAll(){
+//        List<Student> students = new Gson().fromJson(redisUtils.listAll("student:key")+"",List.class);
+//        return students;
+//    }
 
     @ApiOperation(value ="出队",httpMethod = "GET")
     @GetMapping(value ="/lpop")
     public Student lpop(){
         Student student = new Gson().fromJson(redisUtils.lpop("student:key")+"",Student.class);
         return student;
+    }
+
+    @GetMapping("/test")
+    public String test(){
+        return "成功";
     }
 }
