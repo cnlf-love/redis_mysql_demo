@@ -65,12 +65,12 @@ public class StudentController {
         return RespBean.error("添加失败");
     }
 
-//    @ApiOperation(value ="取出队列中的所有student",httpMethod = "GET")
-//    @GetMapping("/listAll")
-//    public List<Student> listAll(){
-//        List<Student> students = new Gson().fromJson(redisUtils.listAll("student:key")+"",List.class);
-//        return students;
-//    }
+    @ApiOperation(value ="取出队列中的所有student",httpMethod = "GET")
+    @GetMapping("/listAll")
+    public List<Student> listAll(){
+        List<Student> students = new Gson().fromJson(redisUtils.listAll("student:key")+"",List.class);
+        return students;
+    }
 
     @ApiOperation(value ="出队",httpMethod = "GET")
     @GetMapping(value ="/lpop")
