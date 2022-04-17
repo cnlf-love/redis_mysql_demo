@@ -14,7 +14,6 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 
 import java.net.UnknownHostException;
 import java.time.Duration;
-
 /**
  * 底层redis自动配置中的
  * @ConditionalOnMissingBean(name = "redisTemplate")
