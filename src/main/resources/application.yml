@@ -1,0 +1,27 @@
+server:
+  port: 8081
+spring:
+  redis:
+    database: 0
+    host: 82.157.163.52
+    port: 6379
+    lettuce:
+      pool:
+        max-wait: 10000ms
+        min-idle: 5
+        max-idle: 200
+        max-active: 1000
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  datasource:
+    url: jdbc:mysql://82.157.163.52:3306/test?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    username: root
+    password: alliance
+    driver-class-name: com.mysql.cj.jdbc.Driver
+mybatis:
+  mapper-locations: classpath:/mapper/*.xml
+  type-aliases-package: com.cn.pojo
+  configuration:
+    map-underscore-to-camel-case: false
+

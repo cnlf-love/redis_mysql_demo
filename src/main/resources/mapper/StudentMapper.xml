@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cn.mapper.StudentMapper">
+    <resultMap id="queryByUserName" type="com.cn.pojo.Student">
+        <id column="id" property="id"></id>
+        <result column="student_name" property="studentName"></result>
+        <result column="student_number" property="studentNumber"></result>
+        <result column="isCheck" property="isCheck"></result>
+        <result column="department"  property="department"></result>
+    </resultMap>
+
+    <select id="queryAllStudent" resultMap="queryByUserName">
+        select id,student_name,student_number,department,isCheck from student
+        <where>
+            <if test="studentName != null and studentName != ''">
+                and student_name like concat ('',#{studentName},'%')
+            </if>
+            <if test="department != null and department != ''">
+                and department = #{department}
+            </if>
+        </where>
+    </select>
+
+    <insert id="addStudent" useGeneratedKeys="true" keyColumn="id">
+        insert into student(student_number,student_name,department,isCheck)
+        values (#{studentNumber},#{studentName},#{department},#{isCheck})
+    </insert>
+
+    <delete id="deleteStudentById">
+        delete  from student where id = #{id}
+    </delete>
+
+    <update id="updateStudentById">
+        update student
+        <set>
+            <if test="studentName != null and studentName != ''">
+                and student_name = #{studentName}
+            </if>
+            <if test="department != null and department != ''">
+                and department = #{department}
+            </if>
+            <if test="isCheck != null">
+                and isCheck = #{isCheck}
+            </if>
+            where id = #{id}
+        </set>
+    </update>
+</mapper>
